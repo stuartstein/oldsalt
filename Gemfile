@@ -40,8 +40,8 @@ group :development do
 	gem 'rails_12factor'
 end
 # Use unicorn as the app server
-# gem 'unicorn'
-
+gem 'unicorn'
+gem 'foreman'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
