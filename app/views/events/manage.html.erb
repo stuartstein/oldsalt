@@ -1,0 +1,93 @@
+<%= render 'heading' %>
+<%= render 'single_event_admin_nav' %>
+<h1 class="page-header">Manage</h1>
+
+<div class="row">
+  <div class="col-md-4 table-responsive">
+    <h3>RSVPs</h3>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <th>Yeses   </th><th><%= @event.count_rsvps("Yes") %>     </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nos     </td><td><%= @event.count_rsvps("No") %>      </td>
+          </tr>
+          <tr>
+            <td>Refunded</td><td><%= @event.count_rsvps("Refunded") %></td>
+          </tr>
+          <tr>
+            <td>Openings</td><td><%= @event.open_seats %>             </td>
+          </tr>
+          <tr>
+            <td>Waiting on</td><td><%= @event.count_rsvps("Waiting") %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-4 table-responsive">
+    <h3>Current budget</h3>
+    <div class="table-responsive">
+    <table class="table table-striped">
+       <thead>
+        <th>Your budget</th><th>$500.00</th>
+      </thead>
+      <tbody>
+        <tr><td>Sales           </td><td>$600.00</td></tr>
+        <tr><td> - Old Salt fees</td> <td>$75.00  </td></tr>
+        <tr><td> - Card fees    </td><td>$25.00 </td></tr>
+        <tr><td> - Refunds      </td><td>$0.00 </td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+  <div class="col-md-4 table-responsive">
+    <h3>If We Sell Out</h3>
+    <div class="table-responsive">
+    <table class="table table-striped">
+       <thead>
+        <th>Max Budget</th><th>$1000.00</th>
+      </thead>
+      <tbody>
+        <tr><td>Sales            </td><td>$1200.00</td></tr>
+        <tr><td> - Old Salt fees </td> <td>$150.00  </td></tr>
+        <tr><td> - Est. card fees</td><td>$50.00 </td></tr>
+        <tr><td> - Refunds       </td><td>$0.00 </td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <th>Name</th>
+        <th>Viewed page?</th>
+        <th>RSVP</th>
+        <th>Paid</th>
+        <th>Refund Amt</th>
+        <th>Refund</th>
+      </thead>
+      <tbody>
+        <% @attendees.each do |a| %>
+          <tr>
+            <td><%= "#{Member.find(a.member_id).first_name} 
+                     #{Member.find(a.member_id).last_name}" %>
+            </td>
+            <td><% if a.last_viewed.nil? %>
+                  Has not viewed
+                <% else %>
+                  <%= format_date(a.last_viewed) %>
+                <% end %></td>
+            <td><%= a.rsvp %></td>
+            <!-- TODO implement refund system -->
+            <td>$60.00</td>
+            <td>$0.00</td>
+            <td> </td> 
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+        

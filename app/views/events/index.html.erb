@@ -1,0 +1,10 @@
+<%= render 'heading' %>
+
+<!-- Admin bar -->
+<%= render 'all_events_admin_nav' %>
+
+<!-- Drafts bar -->
+<%= render partial:'draft_thumb', collection: @draft_thumbs %>
+
+<!-- Upcoming events -->
+<%= render partial:'upcoming_thumb', collection: @upcoming_thumbs %>	

@@ -1,0 +1,26 @@
+<%= form_for(@member) do |f| %>
+	<div class="form-section">
+		<h4>Basics</h4>	
+		<div class="form-group">
+			<%= f.text_field :first_name, placeholder: "First", class: "form-control" %>
+			<%= f.text_field :last_name, placeholder: "Last", class: "form-control" %>
+			<%= f.email_field :email, placeholder: "Email", class: "form-control" %>
+			<%= f.telephone_field :phone, placeholder: "Phone", class: "form-control" %>
+		</div>
+		<h4>Address</h4>	
+		<div class="form-group">
+			<%= f.text_field :address1, placeholder: "Mailing address 1", class: "form-control" %>
+			<%= f.text_field :address2, placeholder: "Mailing address 2", class: "form-control" %>
+			<%= f.text_field :city, placeholder: "City", class: "form-control" %>
+			<%= f.select :state, us_states, selected: "CA", class: "form-control" %>
+			<%= f.text_field :zip, placeholder: "Zip", class: "form-control" %>
+		</div>
+		<h4>Role</h4>
+		<div class="form-group">
+			<%= f.radio_button :role, "Admin" %> Admin<br>
+				
+			<%= f.radio_button :role, "Member" %> Member<br>
+		</div>
+		<%= f.submit("Create", class: "btn btn-large btn-primary") %>
+	</div>
+<% end %>

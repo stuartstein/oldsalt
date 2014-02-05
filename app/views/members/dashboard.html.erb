@@ -1,0 +1,38 @@
+<%= render '/events/heading' %>
+<%= render 'all_members_admin_nav' %>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+    	<thead>
+    		<th>Full name</th>
+    		<th>Role</th>
+    		<th>Status</th>
+    		<th>Email</th>
+    		<th>Phone</th>
+    		<th>Attended</th>
+    		<th>Last login</th>
+    		<th>Deactivate</th>
+    		<th>Delete</th>
+    	</thead>
+    	<tbody>
+    		<% @members.each do |m| %>
+    			<tr>
+    				<td><%= link_to m.full_name, member_path(m.id) %></td>
+    				<td><%= m.role %></td>
+    				<td><%= m.active_print %></td>
+    				<td><%= m.email %></td>
+    				<td><%= m.phone %></td>
+    				<td><%= m.count_past_rsvps("Yes") %></td>
+    				<!-- TODO: Add last login from sessions-->
+    				<td>Feb 1, 2000</td> 
+
+    				<!-- TODO: Add deactivate code-->
+    				<td>Deactivate</td> 
+
+    				<!-- TODO: Add delete functionality -->
+    				<td>Destroy</td>
+    			</tr>
+    		<% end %>
+    	</tbody>
+    </table>
+</div>

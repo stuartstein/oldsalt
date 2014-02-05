@@ -1,0 +1,72 @@
+<%= render 'heading' %>
+<%= render 'all_events_admin_nav' %>
+<h1 class="page-header">Dashboard</h1>
+<h2 class="sub-header">Upcoming</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Lead</th>
+          <th>Sales</th>
+          <th>Our fees</th>
+          <th>Refund Amt</th>
+          <th>Yeses</th>
+          <th>Nos</th>
+          <th>Openings</th>
+          <th>Refunds</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+      	<% @upcoming_events.each do |event| %>
+          <tr>
+            <td><%= link_to(format_date(event.start_date), event_path(event)) %></td>
+            <td><%= print_first_last(event.get_leads) %></td>
+            <td>$600.00</td>
+            <td>$60.00</td>
+            <td>$0.00</td>
+            <td><%= event.count_rsvps("Yes") %></td>
+            <td><%= event.count_rsvps("No") %></td>
+            <td><%= event.open_seats %></td>
+            <td><%= event.count_rsvps("Refunded") %></td>
+            <td><%= link_to("Edit", edit_event_path(event)) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
+
+<h2 class="sub-header">Past</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Lead</th>
+          <th>Sales</th>
+          <th>Our fees</th>
+          <th>Refund Amt</th>
+          <th>Yeses</th>
+          <th>Nos</th>
+          <th>Openings</th>
+          <th>Refunds</th>
+        </tr>
+      </thead>
+      <tbody>
+       <% @past_events.each do |event| %>
+          <tr>
+            <td><%= link_to(format_date(event.start_date), event_path(event)) %></td>
+            <td><%= print_first_last(event.get_leads) %></td>
+            <td>$600.00</td>
+            <td>$60.00</td>
+            <td>$0.00</td>
+            <td><%= event.count_rsvps("Yes") %></td>
+            <td><%= event.count_rsvps("No") %></td>
+            <td><%= event.open_seats %></td>
+            <td><%= event.count_rsvps("Refunded") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>

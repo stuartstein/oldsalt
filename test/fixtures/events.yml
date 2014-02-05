@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: MyString
+  end_date: MyString
+  picture: MyString
+  video_url: MyString
+  capacity: 1
+  price: 1.5
+  fee: 1.5
+  address1: MyString
+  address2: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  attire: MyText
+  what_to_bring: MyText
+  notes: MyText
+  warnings: MyText
+  description: MyString
+  clue_text: MyText
+
+two:
+  start_date: MyString
+  end_date: MyString
+  picture: MyString
+  video_url: MyString
+  capacity: 1
+  price: 1.5
+  fee: 1.5
+  address1: MyString
+  address2: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  attire: MyText
+  what_to_bring: MyText
+  notes: MyText
+  warnings: MyText
+  description: MyString
+  clue_text: MyText

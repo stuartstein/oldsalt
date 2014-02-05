@@ -1,0 +1,101 @@
+<%= form_for(@event) do |f| %>
+	<div class="form-section">
+		<h4>Basics</h4>	
+
+		<!-- TODO  make sure this selection is posting right variabls -->
+		<div class="form-group">	
+			<%= f.label "Select event leads", class: "control-label" %><br>
+			<%= select_tag "mem", options_from_collection_for_select(@active_members, "id", "full_name", @selected_ids), class: "form-control",multiple: true, include_blank: false %>
+			<span class="help-block">Press 'shift + click' for multiple leads</span> 
+		</div>
+
+		<!-- TODO parse time -->
+		<div class="form-group">
+			<%= f.label "Event date", class: "control-label" %><br>
+			<%= text_field_tag :start_day, format_date(@event.start_date), placeholder: format_date(Time.now) %>
+			<%= text_field_tag :start_time, format_hours(@event.start_date, true), placeholder: "9:00 AM" %> to
+			<%= text_field_tag :end_day, format_date(@event.end_date), placeholder: format_date(Time.now) %>
+			<%= text_field_tag :end_time, format_hours(@event.end_date, true), placeholder: "10:00 AM" %> Time Zone
+		</div>
+
+		<div class="form-group">
+			<%= f.label "Cover picture URL", class: "control-label" %><br> 
+			<%= f.text_field :picture, placeholder: "http://", class: "form-control" %>
+			<span class="help-block">Covers should be at least 800px wide</span>
+		</div>
+	</div>
+	<div class="form-section">
+		<h2 class="sub-header">Budgeting</h2>
+			<div class="form-group">
+				<%= f.label "Ticket price", class: "control-label" %><br>
+				<div class="input-group">	
+					 <span class="input-group-addon">$</span>
+					<%= f.text_field :price, value: price_rounded(@event.price), placeholder: "0", class: "form-control" %>
+					<span class="input-group-addon">.00</span>
+				</div>	
+			</div>
+
+			<div class="form-group">	
+				<%= f.label "Capacity", class: "control-label" %><br>
+				<%= f.select :capacity, (1..100).map{|n| [n, n]}, {selected: 12}, {class: "form-control"} %>
+			</div>
+			<!-- Implement estimator -->
+	</div>
+
+	<div class="form-section">
+		<h2 class="sub-header">Details</h2>
+		<div class="form-group">	
+			<%= f.label "One-line invitation", class: "control-label" %><br>
+			<%= f.text_field :invite_line, placeholder: "Sacha invites you to a day of M&Ms and mystery.", class: "form-control" %>
+		</div>	
+		<div class="form-group">	
+			<%= f.label "Meetup spot ", class: "control-label" %><br>
+			<%= f.text_field :location_name, placeholder: "Presidio Social Club", class: "form-control" %>
+		</div>	
+		<div class="form-group">	
+			<%= f.label "Address 1", class: "control-label" %><br>
+			<%= f.text_field :address1, placeholder: "563 Ruger St", class: "form-control" %>
+		</div>
+		<div class="form-group">	
+			<%= f.label "Address 2", class: "control-label" %><br>
+			<%= f.text_field :address2, placeholder: "Address 2", class: "form-control" %>
+		</div>
+		<div class="form-group">
+			<%= f.label "City", class: "control-label" %><br>
+			<%= f.text_field :city, placeholder: "San Francisco", class: "form-control" %>
+		</div>
+		<div class="form-group">	
+			<%= f.label "State", class: "control-label" %><br>
+			<%= f.select :state, us_states, {selected: "CA"}, {class: "form-control"} %>
+		</div>
+		<div class="form-group">	
+			<%= f.label "Zip", class: "control-label" %><br>
+			<%= f.text_field :zip, placeholder: "94129", class: "form-control" %>
+		</div>
+		<div class="form-group">	
+			<%= f.label "What to wear", class: "control-label" %><br>
+			<%= f.text_area :attire, placeholder: "For ladies and gentlemen", class: "form-control" %>
+		</div>
+		<div class="form-group">	
+			<%= f.label "What to bring", class: "control-label" %><br>
+			<%= f.text_area :what_to_bring, placeholder: "Food, supplies, misdirections", class: "form-control" %>
+		</div>
+		<div class="form-group">	
+			<%= f.label "Warnings", class: "control-label" %><br>
+			<%= f.text_area :warnings, placeholder: "Alcohol, heavy activity, heights, potential allergies", class: "form-control" %>
+		</div>
+	</div>
+	<div class="form-section">
+		<h2 class="sub-header">The Clue</h2>
+		<div class="form-group">	
+			<%= f.label "Clue URL", class: "control-label" %><br>
+			<%= f.text_field :clue_url, placeholder: "http://", class: "form-control" %>
+			<span class="help-block">URLs from YouTube, Vimeo, and image supported</span>  
+		</div>
+		<div class="form-group">	
+			<%= f.label "Note about the clue", class: "control-label" %><br> 
+			<%= f.text_area :clue_text, placeholder: "Say something mysterious (optional)", class: "form-control" %>
+		</div>
+	</div>
+	<%= f.submit("Save and Preview", class: "btn btn-large btn-primary") %>
+<% end %>
