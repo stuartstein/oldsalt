@@ -36,8 +36,8 @@ group :development do
 	gem 'pry'
 	gem 'quiet_assets'
 	gem 'better_errors'
-	gem 'rails_12factor'
 end
+gem 'rails_12factor', group: :production
 # Use unicorn as the app server
 gem 'unicorn'
 gem 'foreman'
