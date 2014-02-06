@@ -1,0 +1,24 @@
+<div class="centered" id="logo-header">
+	<%= image_tag "logo.png" %>
+</div>
+<div class="header">
+	 <div class="row" id="heading-nav">
+      <ul class="nav navbar-nav">
+          <li><%= link_to "Upcoming", events_path %></li>
+          <li><%= link_to "Members", members_path %></li>
+      </ul>
+      <% if member_signed_in? %>
+        <ul class="nav navbar-nav pull-right">
+          <li><%= link_to current_member.name, member_path(current_member) %></li>
+          <li><%= link_to "Logout", destroy_member_session_path, method: :delete %></li>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav pull-right">
+          Still need to implement sign in
+        </ul>
+      <% end %>
+  </div>
+</div>
+<div class="double-line"></div>
+<%= yield :admin_nav %>
+<%= render 'shared/alerts' %>

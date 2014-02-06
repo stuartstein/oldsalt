@@ -1,7 +1,9 @@
-<div class="row admin-nav">
-	<ul class="nav navbar-nav navbar-right">
-	    <li><%= link_to "Create event", new_event_path %></li>
-	    <li><%= link_to "Dashboard", events_dashboard_path %></li>
-	    <li><%= link_to "Upcoming", events_path %></li>
-	</ul>
-</div>
+<li class="<%= 'active' if current_page?(events_path) %>">
+	<%= link_to "Upcoming", events_path %>
+</li>
+<li class="<%= 'active' if current_page?(events_dashboard_path) %>">
+	<%= link_to "Dashboard", events_dashboard_path %>
+</li>
+<li class="<%= 'active' if current_page?(new_event_path) %>">
+	<%= link_to "Create event", new_event_path %>
+</li>

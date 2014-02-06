@@ -1,5 +1,5 @@
-<%= render 'events/heading' %>
-<%= render 'single_member_admin_nav' %>
+<%= render partial: 'shared/admin_nav', locals: {admin_links: 'single_member_admin_nav'} %>
+
 <h1 class="page-header"><%= link_to "Members", members_path %> > <%= @member.full_name %></h1>
 
 <div class="contact-info">
@@ -76,4 +76,7 @@
        		<% end %>
        </tbody>
     </table>
+</div>
+<div>
+<%= render 'change_password' %>
 </div>

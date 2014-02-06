@@ -1,11 +1,13 @@
 <div class="col-md-6">
 	<h5><%= "#{resp}" %> (<%= @event.count_rsvps("#{resp}") %>)</h5>
-	<% rsvpers.each do |r| %>
-			<% g = r.get_attendee(@event.id).guests %>
-			<%= "#{r.first_name} #{r.last_name}" %>
-			<% unless g.nil? || g == 0 %>
-				(+<%= "#{pluralize(g, 'guest')}" %> )
-			<% end %>
-			<br>
+	<% unless rsvpers.nil? %>
+		<% rsvpers.each do |r| %>
+				<% g = r.get_attendee(@event.id).guests %>
+				<%= "#{r.first_name} #{r.last_name}" %>
+				<% unless g.nil? || g == 0 %>
+					(+<%= "#{pluralize(g, 'guest')}" %> )
+				<% end %>
+				<br>
+		<% end %>
 	<% end %>
 </div>

@@ -8,6 +8,10 @@
 </head>
 <body>
 <div class="container" id="wrap">
+	<% unless @hide_head %> 
+	  <%= render '/layouts/heading' %>
+	<% end %>
+
 	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 	<%= yield %>

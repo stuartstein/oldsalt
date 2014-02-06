@@ -7,6 +7,7 @@ Oldsalt::Application.routes.draw do
 
   get '/events/dashboard' => 'events#dashboard'
   get '/events/:id/manage' => 'events#manage', as: 'manage'
+  get '/events/:id/publish' => 'events#publish', as: 'publish'
   
   resources :events, :members
   

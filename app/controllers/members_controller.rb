@@ -1,4 +1,6 @@
 class MembersController < ApplicationController
+	#before_filter :authenticate_member!
+	
 # TODO add members to attendees for all upcoming events
 	def index
 		redirect_to '/members/dashboard'

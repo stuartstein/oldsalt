@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+	#before_filter :authenticate_member!
 	
 	def index
 		@upcoming_thumbs = Event.where(status: "Live").order(start_date: :asc)
@@ -14,11 +15,12 @@ class EventsController < ApplicationController
 		event_params = get_event_params
 		event_params[:start_date] = format_datetime(params[:start_day], params[:start_time])
 		event_params[:end_date] = format_datetime(params[:end_day], params[:end_time])
+		event_params[:status] = "Draft"
 		@event = Event.new(event_params)
 
 		if @event.save 
-			active_members = Member.where(active: true).order(last_name: :asc)
-			@event.create_attendees_for(active_members, params[:mem])
+			params[:mem].each { | mem_id | Attendee.create(event_id: @event.id, member_id:  mem_id.to_i, is_lead: true, rsvp: "Yes") }
+			flash[:info] = "Here's a preview of your event. Tweak until it's perfect!"
 			redirect_to(@event) 
 		else
 			render(:new) 
@@ -41,21 +43,29 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 		@active_members = Member.where(active: true).order(last_name: :asc)
 		@selected_ids = @event.get_leads.map { |lead| lead.id }
+		flash[:info] = "Your updates have been saved. Take a look!"
 	end
 
 	def update
 		@event = Event.find(params[:id])
 		@event.save
-		@event.update_attributes(get_event_params) ? render(:show) : render(:edit)
+		flash[:info] = "Updated! Double-check to make sure it looks amazetastic."
+		@event.update_attributes(get_event_params) ? redirect_to(event_path) : render(:edit)
 	end
 
-	# TODO setup publish to create attendees for every member
 	def publish
+		@event = Event.find(params[:id]) 
+		active_members = Member.where(active: true).order(last_name: :asc)
+		@event.create_attendees_for(active_members)
+		@event.status = "Live"
+		flash[:success] = "Your event is live! Time to get promoting."
+		redirect_to event_path
 	end
 
 	def destroy
 		event = Event.find(params[:id])
 		event.delete
+		flash[:success] = "That event is no more. Parting is sweet sorrow."
 		redirect_to events_path
  	end
 

@@ -1,5 +1,4 @@
-<%= render 'heading' %>
-<%= render 'all_events_admin_nav' %>
+<%= render partial: 'shared/admin_nav', locals: {admin_links: 'all_events_admin_nav'} %>
 <h1 class="page-header">Dashboard</h1>
 <h2 class="sub-header">Upcoming</h2>
 <div class="table-responsive">
@@ -21,6 +20,7 @@
       <tbody>
       	<% @upcoming_events.each do |event| %>
           <tr>
+            
             <td><%= link_to(format_date(event.start_date), event_path(event)) %></td>
             <td><%= print_first_last(event.get_leads) %></td>
             <td>$600.00</td>

@@ -1,8 +1,12 @@
-<div class="row admin-nav">
-	<ul class="nav navbar-nav navbar-right">
-	    <li><%= link_to "View", member_path %></li>
-	    <li><%= link_to "Edit", edit_member_path %></li>
-	    <li><%= @member.active ? link_to("Deactivate", deactivate_path) : link_to("Activate", deactivate_path) %></li>
-	    <li><%= link_to "Delete", {action: "destroy", id: @member }, method: :delete, data: { confirm: "Are you sure?"} %></li>
-	</ul>
-</div>
+<li class="<%= 'active' if current_page?(member_path) %>">
+	<%= link_to "View", member_path %>
+</li>
+<li class="<%= 'active' if current_page?(edit_member_path) %>">
+	<%= link_to "Edit", edit_member_path %>
+</li>
+<li>
+	<%= @member.active ? link_to("Deactivate", deactivate_path) : link_to("Activate", deactivate_path) %>
+</li>
+<li>
+	<%= link_to "Delete", {action: "destroy", id: @member }, method: :delete, data: { confirm: "Are you sure?"} %>
+</li>

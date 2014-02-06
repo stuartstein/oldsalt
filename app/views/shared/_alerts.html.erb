@@ -1,0 +1,11 @@
+<% f_types = [:info, :warning, :success, :danger] %>
+
+<% f_types.each do |f| %>
+
+	<% if flash[f] %>
+	  <div class="alert alert-<%= f.to_s %>">
+	  	<%= flash[f] %>
+	  </div>
+	<% end %>
+
+<% end %>

@@ -19,17 +19,14 @@ class Event < ActiveRecord::Base
 		Member.joins("INNER JOIN attendees ON members.id = attendees.member_id WHERE attendees.event_id = #{id} AND attendees.rsvp = '#{response}'")
 	end
 
-	def create_attendees_for(members, id_arr)
-		members.each do |m|
-			if id_arr.include?(m.id.to_s)
+	def create_attendees_for(members)
 
-				lead = true 
-				resp = "Yes"
-			else
-				lead = false
-				resp = "Waiting"
+		members.each do |m|
+
+			if Attendee.find_by(member_id: m.id, event_id: id).nil?
+				Attendee.create(event_id: id, member_id: m.id)
 			end
-		 	Attendee.create(event_id: id, member_id: m.id, is_lead: lead, rsvp: resp)
+			
 		end
 	end
 

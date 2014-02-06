@@ -117,7 +117,7 @@ events << Event.create(		start_date: DateTime.new(2014, 5, 29, 9, 30),
 							invite_line: "Becky and Jason cordially invite you to a day of mystery and adventure.",
 							clue_url: "http://upload.wikimedia.org/wikipedia/commons/d/dd/Black_Sea_fauna_Seahorse.JPG",
 							clue_text: "Get ready for a wild ride.",
-							status: "Draft"	
+							status: "Live"	
 						)
 
 events << Event.create(		start_date: DateTime.new(2013, 7, 27, 9, 15),
@@ -164,7 +164,7 @@ events << Event.create(		start_date: DateTime.new(2014, 4, 15, 10, 0),
 							capacity: 29,
 							price: 20.00,
 							oldsalt_fee: 2.00,
-							picture: "http://farm2.staticflickr.com/1124/5154596724_abed755907_o.jpg",
+							picture: "http://www.cousinspaintball.com/Dallas%20Hyper.JPG",
 							location_name: "Pier 23 Cafe",
 							address1:  "Pier 23",
 							city: "San Francisco",

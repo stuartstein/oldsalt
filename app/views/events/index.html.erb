@@ -1,7 +1,5 @@
-<%= render 'heading' %>
-
 <!-- Admin bar -->
-<%= render 'all_events_admin_nav' %>
+<%= render partial: 'shared/admin_nav', locals: {admin_links: 'all_events_admin_nav'} %>
 
 <!-- Drafts bar -->
 <%= render partial:'draft_thumb', collection: @draft_thumbs %>

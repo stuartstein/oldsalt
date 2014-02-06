@@ -1,5 +1,4 @@
-<%= render '/events/heading' %>
-<%= render 'all_members_admin_nav' %>
+<%= render partial: 'shared/admin_nav', locals: {admin_links: 'all_members_admin_nav'} %>
 
 <div class="table-responsive">
     <table class="table table-striped">
@@ -24,7 +23,7 @@
     				<td><%= m.phone %></td>
     				<td><%= m.count_past_rsvps("Yes") %></td>
     				<!-- TODO: Add last login from sessions-->
-    				<td>Feb 1, 2000</td> 
+    				<td>Feb 1, 2012<%#= m.last_sign_in_at %></td> 
 
     				<!-- TODO: Add deactivate code-->
     				<td>Deactivate</td> 

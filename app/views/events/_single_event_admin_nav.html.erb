@@ -1,12 +1,21 @@
-<div class="row admin-nav">
-	<ul class="nav navbar-nav navbar-right">
-	    <li><%= link_to "View", event_path %></li>
-	    <li><%= link_to "Manage", manage_path %></li>
-	    <li><%= link_to "Edit", edit_event_path %></li>
-	    <li><% if @event.status == 'Draft' %>
-	    		<%= link_to "Publish", events_dashboard_path %>
-	    	<% end%>
-	    </li>
-	    <li><%= link_to "Delete", {action: "destroy", id: @event }, method: :delete, data: { confirm: "Are you sure?"} %></li>
-	</ul>
-</div>
+<li class="<%= 'active' if current_page?(event_path) %>">
+	<%= link_to "View", event_path %>
+</li>
+
+<li class="<%= 'active' if current_page?(manage_path) %>">
+	<%= link_to "Manage", manage_path %>
+</li>
+
+<li class="<%= 'active' if current_page?(edit_event_path) %>">
+	<%= link_to "Edit", edit_event_path %>
+</li>
+
+<% if @event.status == 'Draft' %>
+	<li>
+		<%= link_to "Publish", publish_path %>
+	</li>
+<% end %>
+
+<li>
+	<%= link_to "Delete", {action: "destroy", id: @event }, method: :delete, data: { confirm: "Are you sure?"} %>
+</li>
