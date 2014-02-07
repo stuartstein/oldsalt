@@ -1,3 +1,30 @@
 <%= render partial: 'shared/admin_nav', locals: {admin_links: 'all_members_admin_nav'} %>
-<h1 class="page-header">Add a new member</h1>
-<%= render 'member_form' %>
+<h1 class="page-header">Add new member</h1>
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+<h4>Basics</h4>	
+<div class="form-group">
+	<%= f.text_field :first_name, placeholder: "First", class: "form-control", :autofocus => true, required: true%>
+	<%= f.text_field :last_name, placeholder: "Last", class: "form-control", required: true %>
+	<%= f.email_field :email, placeholder: "Email", class: "form-control", required: true %>
+	<%= f.telephone_field :phone, placeholder: "Phone", class: "form-control" %>
+</div>
+<h4>Address</h4>	
+<div class="form-group">
+	<%= f.text_field :address1, placeholder: "Mailing address 1", class: "form-control" %>
+	<%= f.text_field :address2, placeholder: "Mailing address 2", class: "form-control" %>
+	<%= f.text_field :city, placeholder: "City", class: "form-control" %>
+	<%= f.select :state, us_states, selected: "CA", class: "form-control" %>
+	<%= f.text_field :zip, placeholder: "Zip", class: "form-control" %>
+</div>
+<h4>Role</h4>
+<div class="form-group">
+	<%= f.radio_button :role, "Admin" %> Admin<br>
+		
+	<%= f.radio_button :role, "Member" %> Member<br>
+</div>
+<%= f.submit("Add", class: "btn btn-large btn-primary") %>
+</div>
+<% end %>

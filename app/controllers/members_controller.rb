@@ -7,9 +7,13 @@ class MembersController < ApplicationController
 	end
 
 	def new
-		@member = Member.new
+		@member = Member.new()
 	end
 
+	def create
+		@member = Member.create(get_member_params)
+		redirect_to 'member_password'
+	end
 
 	def dashboard
 		@members = Member.all
@@ -19,9 +23,6 @@ class MembersController < ApplicationController
 		@member = Member.find(params[:id])
 		@upcoming = @member.get_events("Live").order(start_date: :asc)
 		@past = @member.get_events("Archived")
-	end
-
-	def delete
 	end
 
 	def deactivate
@@ -34,5 +35,9 @@ class MembersController < ApplicationController
 		@member = Member.find(params[:id])
 	end
 
-
 end
+
+private
+
+def get_member_params
+	params.require(:member).permit(:first_name, :last_name, :email, :address1, :address2, :city, :state, :zip, :role)

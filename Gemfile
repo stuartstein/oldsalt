@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 gem 'devise'
+gem 'devise_invitable', '~> 1.3.3'
+
 gem 'pg'
 
 # Use SCSS for stylesheets
