@@ -1,5 +1,5 @@
 <div class="edit-btn">
-<%= button_to "Edit", edit_member_path, class: "btn btn-lg btn-primary" %>
+	<%= link_to "Edit", edit_member_path(@member), class: "btn btn-lg btn-primary" %>
 </div> 
 
 <h1 class="page-header"><%= link_to "Members", members_path %> > <%= @member.full_name %></h1>
