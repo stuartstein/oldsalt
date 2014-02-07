@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-	before_filter :authenticate_member!
+	#before_filter :authenticate_member!
 	
 	def index
 		@upcoming_thumbs = Event.where(status: "Live").order(start_date: :asc)
