@@ -1,3 +1,4 @@
-<div class="draft_thumbs">
-	<%= link_to image_tag(draft_thumb.picture), event_path(draft_thumb) %>
-</div>
+<li>
+<%= link_to image_tag(draft_thumb.picture), event_path(draft_thumb) %><br>
+<%= link_to format_date(draft_thumb.start_date), event_path(draft_thumb) %>
+</li>

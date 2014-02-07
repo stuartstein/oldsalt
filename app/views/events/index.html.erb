@@ -2,7 +2,14 @@
 <%= render partial: 'shared/admin_nav', locals: {admin_links: 'all_events_admin_nav'} %>
 
 <!-- Drafts bar -->
-<%= render partial:'draft_thumb', collection: @draft_thumbs %>
+
+<div class="navbar-header">
+		<p class="drafts">Draft</p>
+	</div>
+<ul class="draft_thumbs">
+	<%= render partial:'draft_thumb', collection: @draft_thumbs %>
+</ul>
+
 
 <!-- Upcoming events -->
-<%= render partial:'upcoming_thumb', collection: @upcoming_thumbs %>	
+	<%= render partial:'upcoming_thumb', collection: @upcoming_thumbs %>	
