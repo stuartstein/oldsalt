@@ -8,12 +8,7 @@
 </head>
 <body>
 <div class="container" id="wrap">
-	<% unless @hide_head %> 
-	  <%= render '/layouts/heading' %>
-	<% end %>
-
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+	<%= render '/layouts/heading' unless current_page?(root_path) %>
 	<%= yield %>
 	
 </div>
