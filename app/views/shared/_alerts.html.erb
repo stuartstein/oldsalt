@@ -1,11 +1,20 @@
-<% f_types = [:info, :warning, :success, :danger] %>
+<% f_types = [:info, :warning, :success, :danger, :notice, :alert] %>
 
 <% f_types.each do |f| %>
-
+	
 	<% if flash[f] %>
-	  <div class="alert alert-<%= f.to_s %>">
-	  	<%= flash[f] %>
+	  <% if f == :notice %>
+	  	<div class="alert alert-info">
+	  <% elsif f == :alert %>
+	  	<div class="alert alert-warning">
+	  <% else %>
+	  	<div class="alert alert-<%= f.to_s %>">
+	  <% end %>
+	  <%= flash[f] %>
 	  </div>
+  <% end %>
+	  
 	<% end %>
+	
 
-<% end %>
+
