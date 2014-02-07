@@ -13,6 +13,8 @@ class ProductsController < ApplicationController
   end
 
   def index
+    redirect_to members_dashboard_path if current_member
+
   	@hide_head = true
   end
 
