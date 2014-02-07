@@ -43,7 +43,6 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 		@active_members = Member.where(active: true).order(last_name: :asc)
 		@selected_ids = @event.get_leads.map { |lead| lead.id }
-		flash[:info] = "Your updates have been saved. Take a look!"
 	end
 
 	def update
