@@ -1,6 +1,10 @@
-<%= render partial: 'shared/admin_nav', locals: {admin_links: 'single_event_admin_nav'} %>
+<% unless current_member.has_draft_access(@event.id) %>
+	<%= render partial: 'shared/admin_nav', locals: {admin_links: 'single_event_admin_nav'} %>
+<% end %>
+
+
 <div class="centered">
-	<h4><%= @event.invite_line %></h4>
+	<h4 class="event-subs"><%= @event.invite_line %></h4>
 	<h1><%= show_date(@event)[0] %></h1>
 	<h2><%= show_date(@event)[1] %></h2>
 	<h3><%= @event.open_seats %> seats left.</h3>
@@ -9,12 +13,12 @@
 </div>
 <div class="row">
 	<div class="col-md-6">
-		<h4>The Clue</h4>
-		<%= get_clue_url(@event.clue_url, 500, 300) %>
+		<h4 class="event-subs">The Clue</h4>
+		<%= get_clue_url(@event.clue_url, 320, 220) %>
 		<p><%= @event.clue_text %></p>
 	</div>
 	<div class="col-md-6">
-		<h4>Details</h4>
+		<h4 class="event-subs">Details</h4>
 		<div class="row">
 			<div class="col-md-2"><label>Meet</label></div>
 			<div class="col-md-6">
@@ -49,8 +53,9 @@
 	</div>
 </div>
 <div class="row">
-	<h4>RSVP</h4>
-	<%= render 'rsvp_buttons' %>
+	<div class="col-lg-12">
+		<h4 class="event-subs">RSVP</h4>
+	</div>
 	<%= render partial: 'rsvp_list', locals: {rsvpers: @yeses, resp: "Yes"} %>
 	<%= render partial: 'rsvp_list', locals: {rsvpers: @nos, resp: "No"} %>
 </div>

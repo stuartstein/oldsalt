@@ -1,14 +1,18 @@
 <!-- Admin bar -->
-<%= render partial: 'shared/admin_nav', locals: {admin_links: 'all_events_admin_nav'} %>
+<% if @current_member.role == "Admin" %>
+	<%= render partial: 'shared/admin_nav', locals: {admin_links: 'all_events_admin_nav'} %>
+<% end %>
 
 <!-- Drafts bar -->
 
-<div class="navbar-header">
-		<p class="drafts">Draft</p>
-	</div>
-<ul class="draft_thumbs">
-	<%= render partial:'draft_thumb', collection: @draft_thumbs %>
-</ul>
+<% unless @draft_thumbs == [] %>
+	<div class="navbar-header">
+			<p class="drafts">Draft</p>
+		</div>
+	<ul class="draft_thumbs">
+		<%= render partial:'draft_thumb', collection: @draft_thumbs %>
+	</ul>
+<% end %>
 
 
 <!-- Upcoming events -->

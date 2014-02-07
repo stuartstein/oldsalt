@@ -70,14 +70,74 @@
 }
 
 .upcoming-thumbs img{
-	width: 100%;
+	
+	
+}
+
+div.imageSub { 
+	position: relative; 
 	margin: 30px 0;
 }
+      div.imageSub img { 
+      	z-index: 1; 
+		width: 100%;
+      }
+
+      div.imageSub div {
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 0;
+        padding: 25px 15px 0px 20px;
+        height: 70px;
+        line-height: 16px;
+        text-align: right;
+        overflow: hidden;
+
+      }
+	  div.imageSub div.blackbg {
+	    z-index: 2;
+	    background-color: #000;
+	    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	    filter: alpha(opacity=70);
+	    opacity: 0.70;
+	  }
+
+	div.imageSub div.label {
+	z-index: 3;
+	color: white;
+	font-family: 'Podkova', serif;
+	font-size: 30px;
+	padding: 25px;
+	}
+
+div.imageSub div.seats {	
+            margin-top: 200px;
+            background-color: #aab6b9;
+
+}
+
+div.imageSub div.price {	margin-top: 300px;
+	background-color: #000;
+		}
+
+.overlay    {  height: 50px;
+			   width: 300px;
+               opacity:0;
+               -webkit-transition: opacity .25s ease;
+           	}
+
+div.imageSub:hover .overlay { opacity:.75;}
+
+.plus {  		font-family:Helvetica;
+               font-weight:900;
+               color:rgba(255,255,255,1);
+               font-size:30px;}
 
 .draft_thumbs{
 	background-color: #f8f8f8;
 	border: 1px solid #e7e7e7;
-	padding: 20px 0;
+	padding: 20px 0 15px 0;
 }
 
 .draft_thumbs img{
@@ -85,7 +145,8 @@
 }
 
 .draft_thumbs li{
-display: inline-block;
+	display: inline-block;
+	padding: 0 15px;
 }
 
 .drafts{
@@ -93,7 +154,20 @@ display: inline-block;
 	height: 20px;
 	font-size: 18px;
 	line-height: 20px;
-	padding: 15px 15px;
+	padding: 45px 30px 10px 15px;
 	vertical-align: middle;
+	
 }
 
+#tickets{
+	text-align: right !important;	
+}
+
+.event-subs{
+	padding: 50px 10px 5px 0px;
+}
+
+.edit-btn{
+	float: right; 
+	margin-top: 30px;
+}

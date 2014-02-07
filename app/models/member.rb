@@ -27,4 +27,24 @@ class Member < ActiveRecord::Base
 	def get_events(status)
 		Event.joins("INNER JOIN attendees ON attendees.event_id = events.id WHERE attendees.member_id = #{id} AND events.status = '#{status}'")
 	end
+
+	def get_drafts()
+		self.role == "Admin" ? Event.where(status: "Draft") : self.events.where(status: "Draft")
+	end
+
+	def has_draft_access(e_id)
+		is_admin ? true : Attendee.where(event_id: e_id, member_id: id).first.nil?
+	end 
+
+	def is_admin
+		role == "Admin"
+	end
+
+	def is_event_lead(e_id)
+		if Attendee.where(event_id: e_id, member_id: id).first.nil?
+			false
+		else
+			Attendee.where(event_id: e_id, member_id: id).first.is_lead
+		end
+	end
 end

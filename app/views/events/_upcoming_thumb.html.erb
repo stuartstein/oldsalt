@@ -1,3 +1,13 @@
-<div class="upcoming-thumbs">
-	<%= link_to image_tag(upcoming_thumb.picture), event_path(upcoming_thumb) %>
+<div class="imageSub">
+   <%= link_to image_tag(upcoming_thumb.picture), event_path(upcoming_thumb) %>
+   <div class="blackbg"></div>
+   <div class="label"><%= format_date(upcoming_thumb.start_date) %></div>
+   <div class="seats overlay">
+    <span class="plus"><%= upcoming_thumb.open_seats %> seats left!</span>
+  </div>
+  <div class="price overlay">
+    <span class="plus">
+    $<%='%.0f' % upcoming_thumb.price unless upcoming_thumb.price.nil? %>
+    </span>
+  </div>
 </div>

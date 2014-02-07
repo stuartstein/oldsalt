@@ -1,4 +1,4 @@
-<%= render partial: '/../shared/admin_nav', locals: {admin_links: 'all_members_admin_nav'} %>
+<%= render partial: 'shared/admin_nav', locals: {admin_links: 'shared/all_members_admin_nav'} %>
 <h2><%= t "devise.invitations.new.header" %></h2>
 
 <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>

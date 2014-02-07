@@ -1,7 +1,6 @@
 members = []
 members << Member.create(	first_name: "Mark",
 							last_name: 	"Kars",
-							password: 	"welcome123",
 							picture: 	"https://lh3.googleusercontent.com/-tJoJdRofuzc/AAAAAAAAAAI/AAAAAAABfoY/fCZjBFm2fd4/photo.jpg",
 							role: 		"Member",
 							active: 	true,
@@ -11,6 +10,7 @@ members << Member.create(	first_name: "Mark",
 							zip: 		"94117",
 							email: 		"mark.kars@gmail.com",
 							phone: 		"555-555-5555"
+							last_sign_in_at: DateTime.new(2014, rand(1..12), rand(1..28), rand(1..12), rand(1..59))
 						)
 
 members << Member.create(	first_name: "Sach",
@@ -26,6 +26,7 @@ members << Member.create(	first_name: "Sach",
 							zip: 		"94107",
 							email: 		"sach.osterion@gmail.com",
 							phone: 		"555-555-5551"
+							last_sign_in_at: DateTime.new(2014, rand(1..12), rand(1..28), rand(1..12), rand(1..59))
 						)
 
 members << Member.create(	first_name: "Steve",
@@ -40,6 +41,7 @@ members << Member.create(	first_name: "Steve",
 							zip: 		"94117",
 							email: 		"steve.stein@gmail.com",
 							phone: 		"703-555-5555"
+							last_sign_in_at: DateTime.new(2014, rand(1..12), rand(1..28), rand(1..12), rand(1..59))
 							)
 
 members << Member.create(	first_name: "Jessica",
@@ -54,6 +56,7 @@ members << Member.create(	first_name: "Jessica",
 							zip: 		"94117",
 							email: 		"j.wigs@gmail.com",
 							phone: 		"415-555-1232"
+							last_sign_in_at: DateTime.new(2014, rand(1..12), rand(1..28), rand(1..12), rand(1..59))
 							)
 
 members << Member.create(	first_name: "Andy",
@@ -68,6 +71,7 @@ members << Member.create(	first_name: "Andy",
 							zip: 		"94110",
 							email: 		"alundgren@gmail.com",
 							phone: 		"415-525-3523"
+							last_sign_in_at: DateTime.new(2014, rand(1..12), rand(1..28), rand(1..12), rand(1..59))
 							)
 
 members << Member.create(	first_name: "Becca",
@@ -82,6 +86,7 @@ members << Member.create(	first_name: "Becca",
 							zip: 		"94117",
 							email: 		"becfishman@gmail.com",
 							phone: 		"555-555-5050"
+							last_sign_in_at: DateTime.new(2014, rand(1..12), rand(1..28), rand(1..12), rand(1..59))
 							)
 
 members << Member.create(	first_name: "Laura",
@@ -96,6 +101,7 @@ members << Member.create(	first_name: "Laura",
 							zip: 		"94127",
 							email: 		"lauraherzl@gmail.com",
 							phone: 		"555-555-5051"
+							last_sign_in_at: DateTime.new(2014, rand(1..12), rand(1..28), rand(1..12), rand(1..59))
 							)
 
 events = []

@@ -1,6 +1,9 @@
-<%= render partial: 'shared/admin_nav', locals: {admin_links: 'single_member_admin_nav'} %>
+<div class="edit-btn">
+<%= button_to "Edit", edit_member_path, class: "btn btn-lg btn-primary" %>
+</div> 
 
 <h1 class="page-header"><%= link_to "Members", members_path %> > <%= @member.full_name %></h1>
+
 
 <div class="contact-info">
 	<%= @member.email %><br>
@@ -76,7 +79,4 @@
        		<% end %>
        </tbody>
     </table>
-</div>
-<div>
-<%= render 'change_password' %>
 </div>

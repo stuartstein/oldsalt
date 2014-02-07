@@ -4,7 +4,8 @@ class Event < ActiveRecord::Base
 	has_many :members, through: :attendees
 
 	def open_seats
-		capacity - count_rsvps("Yes")
+		seats = capacity - count_rsvps("Yes")
+		seats == 0 ? "Sold out!" : seats
 	end
 
 	def count_rsvps(response)

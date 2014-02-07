@@ -1,9 +1,5 @@
-<div>
-	<div class="reserve">
-		<%= select :tickets, "Tickets", (1..10).map{|n| [n, n]} %>
-		<span>Buy</span>
-	</div>
-	<div>
-		Not attending
-	</div>
+<div class="reserve">
+	<%= select(:tickets, "Tickets", (1..10).map{|n| [pluralize(n,"tickets"), n]}, {}) %><br><br>
+	<%= button_tag "Reserve now", class: "btn btn-primary btn-lg" %>
+	<%= button_tag "Not attending", class: "btn btn-default btn-lg" %>
 </div>
