@@ -41,3 +41,4 @@ private
 
 def get_member_params
 	params.require(:member).permit(:first_name, :last_name, :email, :address1, :address2, :city, :state, :zip, :role)
+end
