@@ -1,7 +1,7 @@
 class Member < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :invitable, :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 # TODO set active/inactive member rules
 
