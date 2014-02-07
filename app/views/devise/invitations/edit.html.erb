@@ -1,3 +1,4 @@
+<%= render partial: 'admin_nav', locals: {admin_links: 'single_member_admin_nav'} %>
 <h2><%= t 'devise.invitations.edit.header' %></h2>
 
 <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>

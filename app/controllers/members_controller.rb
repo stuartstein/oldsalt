@@ -29,6 +29,13 @@ class MembersController < ApplicationController
 	end
 
 	def update
+		@member = Member.find(params[:id])
+		if @member.update_attributes(get_member_params)
+			flash[:info] = "Updated! Double-check it's everything you dreamed."
+		 	redirect_to(member_path) 
+		 else
+		 	render(:edit)
+		 end
 	end
 
 	def edit

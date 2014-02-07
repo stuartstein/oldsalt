@@ -1,0 +1,16 @@
+<li class="<%= 'active' if current_page?(member_path) %>">
+	<%= link_to "Profile", member_path %>
+</li>
+<li class="<%= 'active' if current_page?(edit_member_path) %>">
+	<%= link_to "Edit", edit_member_path %>
+</li>
+<li class="<%= 'active' if current_page?(edit_member_registration_path) %>">
+	<%= link_to "Account", edit_member_registration_path %>
+</li>
+
+<li>
+	<%= @member.active ? link_to("Deactivate", deactivate_path) : link_to("Activate", deactivate_path) %>
+</li>
+<li>
+	<%= link_to "Delete", {action: "destroy", id: @member }, method: :delete, data: { confirm: "Are you sure?"} %>
+</li>
