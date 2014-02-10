@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140207011709) do
     t.integer  "member_id"
     t.integer  "event_id"
     t.string   "rsvp",        default: "Waiting"
-    t.boolean  "is_lead"
+    t.boolean  "is_lead",     default: false
     t.datetime "last_viewed"
     t.integer  "guests"
     t.datetime "created_at"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20140207011709) do
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.date     "expiration"
+    t.datetime "expiration"
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"

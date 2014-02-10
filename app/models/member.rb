@@ -33,7 +33,7 @@ class Member < ActiveRecord::Base
 	end
 
 	def has_draft_access(e_id)
-		is_admin ? true : Attendee.where(event_id: e_id, member_id: id).first.nil?
+		is_admin ? true : Attendee.where(event_id: e_id, member_id: id).first.is_lead
 	end 
 
 	def is_admin

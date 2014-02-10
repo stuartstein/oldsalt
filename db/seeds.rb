@@ -1,36 +1,40 @@
 members = []
-members << Member.create(	first_name: "Mark",
-							last_name: 	"Kars",
+members << Member.create(	first_name: "Stu M.",
+							last_name: 	"Memberstein",
 							picture: 	"https://lh3.googleusercontent.com/-tJoJdRofuzc/AAAAAAAAAAI/AAAAAAABfoY/fCZjBFm2fd4/photo.jpg",
-							role: 		"Member",
+							role: 		"Admin",
 							active: 	true,
 							address1: 	"555 Haight St",
 							city: 		"San Francisco",
 							state: 		"CA",
 							zip: 		"94117",
-							email: 		"mark.kars@gmail.com",
-							phone: 		"555-555-5555"
+							email: 		"stuart.stein+member@gmail.com",
+							phone: 		"555-555-5555",
+							password: 	"Welcome123",
+							password_confirmation: 	"Welcome123",
 							last_sign_in_at: DateTime.new(2014, rand(1..12), rand(1..28), rand(1..12), rand(1..59))
 						)
 
-members << Member.create(	first_name: "Sach",
-							last_name: 	"Osterion",
+members << Member.create(	first_name: "Stu L.",
+							last_name: 	"Leadstein",
 							password: 	"welcome123",
 							picture: 	"https://lh3.googleusercontent.com/-abFdHQ2hDZY/AAAAAAAAAAI/AAAAAAAAi50/BgJTHIvCE9I/photo.jpg",
-							role: 		"Admin",
+							role: 		"Member",
 							active: 	true,
 							address1: 	"522 Bryant St",
 							address2: 	"Suite 220",
 							city: 		"San Francisco",
 							state: 		"CA",
 							zip: 		"94107",
-							email: 		"sach.osterion@gmail.com",
-							phone: 		"555-555-5551"
+							email: 		"stuart.stein+lead@gmail.com",
+							phone: 		"555-555-5551",
+							password: 	"Welcome123",
+							password_confirmation: 	"Welcome123",
 							last_sign_in_at: DateTime.new(2014, rand(1..12), rand(1..28), rand(1..12), rand(1..59))
-						)
+ 						)
 
-members << Member.create(	first_name: "Steve",
-							last_name: 	"Stein",
+members << Member.create(	first_name: "Stu A.",
+							last_name: 	"Adminstein",
 							password: 	"welcome123",
 							picture: 	"http://designspiration.net/data/avatars/528a8d156edd5_img-6646.jpg",
 							role: 		"Admin",
@@ -39,8 +43,10 @@ members << Member.create(	first_name: "Steve",
 							city: 		"San Francisco",
 							state: 		"CA",
 							zip: 		"94117",
-							email: 		"steve.stein@gmail.com",
-							phone: 		"703-555-5555"
+							email: 		"stuart.stein+admin@gmail.com",
+							phone: 		"703-555-5555",
+							password: 	"Welcome123",
+							password_confirmation: 	"Welcome123",
 							last_sign_in_at: DateTime.new(2014, rand(1..12), rand(1..28), rand(1..12), rand(1..59))
 							)
 
@@ -54,8 +60,10 @@ members << Member.create(	first_name: "Jessica",
 							city: 		"San Francisco",
 							state: 		"CA",
 							zip: 		"94117",
-							email: 		"j.wigs@gmail.com",
-							phone: 		"415-555-1232"
+							email: 		"jessdoe@gmail.com",
+							phone: 		"415-555-1232",
+							password: 	"Welcome123",
+							password_confirmation: 	"Welcome123",
 							last_sign_in_at: DateTime.new(2014, rand(1..12), rand(1..28), rand(1..12), rand(1..59))
 							)
 
@@ -69,8 +77,10 @@ members << Member.create(	first_name: "Andy",
 							city: 		"San Francisco",
 							state: 		"CA",
 							zip: 		"94110",
-							email: 		"alundgren@gmail.com",
-							phone: 		"415-525-3523"
+							email: 		"jackdoe@gmail.com",
+							phone: 		"415-525-3523",
+							password: 	"Welcome123",
+							password_confirmation: 	"Welcome123",
 							last_sign_in_at: DateTime.new(2014, rand(1..12), rand(1..28), rand(1..12), rand(1..59))
 							)
 
@@ -84,8 +94,10 @@ members << Member.create(	first_name: "Becca",
 							city: 		"San Francisco",
 							state: 		"CA",
 							zip: 		"94117",
-							email: 		"becfishman@gmail.com",
-							phone: 		"555-555-5050"
+							email: 		"joandoe@gmail.com",
+							phone: 		"555-555-5050",
+							password: 	"Welcome123",
+							password_confirmation: 	"Welcome123",
 							last_sign_in_at: DateTime.new(2014, rand(1..12), rand(1..28), rand(1..12), rand(1..59))
 							)
 
@@ -99,8 +111,10 @@ members << Member.create(	first_name: "Laura",
 							city: 		"San Francisco",
 							state: 		"CA",
 							zip: 		"94127",
-							email: 		"lauraherzl@gmail.com",
-							phone: 		"555-555-5051"
+							email: 		"janedoe@gmail.com",
+							phone: 		"555-555-5051",
+							password: 	"Welcome123",
+							password_confirmation: 	"Welcome123",
 							last_sign_in_at: DateTime.new(2014, rand(1..12), rand(1..28), rand(1..12), rand(1..59))
 							)
 

@@ -1,10 +1,8 @@
-<% unless current_member.has_draft_access(@event.id) %>
+<% if current_member.has_draft_access(@event.id) %>
 	<%= render partial: 'shared/admin_nav', locals: {admin_links: 'single_event_admin_nav'} %>
 <% end %>
-
-
 <div class="centered">
-	<h4 class="event-subs"><%= @event.invite_line %></h4>
+	<h4 class="event-subs"><%= @event.invite_line.nil? ? "You are invited to a day of mystery" : @event.invite_line %></h4>
 	<h1><%= show_date(@event)[0] %></h1>
 	<h2><%= show_date(@event)[1] %></h2>
 	<h3><%= @event.open_seats %> seats left.</h3>
