@@ -15,8 +15,8 @@
 			<%= f.select :state, us_states, selected: "CA", class: "form-control" %>
 			<%= f.text_field :zip, placeholder: "Zip", class: "form-control" %>
 		</div>
-		<h4>Role</h4>
 		<% if current_member.is_admin %>
+			<h4>Role</h4>
 			<div class="form-group">
 				<%= f.radio_button :role, "Admin" %> Admin<br>
 					
