@@ -5,7 +5,6 @@ gem 'rails', '4.0.2'
 gem 'devise'
 gem 'devise_invitable'
 
-
 gem 'pg'
 
 # Use SCSS for stylesheets
@@ -40,7 +39,6 @@ group :development do
 	gem 'quiet_assets'
 	gem 'better_errors'
 end
-
 
 group :development, :test do
     gem 'dotenv-rails'
