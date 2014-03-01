@@ -13,11 +13,13 @@
 	<%= "#{@member.city}, #{@member.state} #{@member.zip}"  %>
 </div>
 
-<div class="contact-info">
-	<br>Permissions: <%= @member.role %><br>
-	<!-- TODO implement login -->
-	Last login: Apr 1, 2012 
-</div>
+<% if current_member.is_admin %>
+  <div class="contact-info">
+  	<br>Permissions: <%= @member.role %><br>
+  	<!-- TODO implement login -->
+  	Last login: Apr 1, 2012 
+  </div>
+<% end %>
 
 <h2 class="sub-header">Upcoming</h2>
 <div class="table-responsive">

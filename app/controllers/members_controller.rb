@@ -64,7 +64,11 @@ end
 private
 
 def get_member_params
-	params.require(:member).permit(:first_name, :last_name, :email, :address1, :address2, :city, :state, :zip, :role)
+	if current_member.is_admin
+		params.require(:member).permit(:first_name, :last_name, :email, :address1, :address2, :city, :state, :zip, :role)
+	else
+		params.require(:member).permit(:first_name, :last_name, :email, :address1, :address2, :city, :state, :zip)
+	end
 end
 
 def route_to_events

@@ -4,7 +4,7 @@ class CreateMembers < ActiveRecord::Migration
       t.string    :first_name
       t.string    :last_name
       t.string    :picture
-      t.string    :role
+      t.string    :role, default: "Member"
       t.boolean   :active
       t.string    :address1
       t.string    :address2
