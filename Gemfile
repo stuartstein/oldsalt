@@ -40,6 +40,23 @@ group :development do
 	gem 'quiet_assets'
 	gem 'better_errors'
 end
+
+
+group :development, :test do
+    gem 'dotenv-rails'
+    gem 'rspec-rails', '~> 3.0.0.beta'
+    gem 'launchy'
+  	gem 'database_cleaner'
+  	gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+    gem 'guard-rspec'
+    gem 'guard-livereload'
+end
+
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+end
+
 gem 'rails_12factor', group: :production
 # Use unicorn as the app server
 gem 'unicorn'

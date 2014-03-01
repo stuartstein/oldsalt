@@ -39,7 +39,7 @@ class EventsController < ApplicationController
 
 	def show
 		@event = Event.find(params[:id]) 
-		if (@event.status = "Draft" && !current_member.has_draft_access(@event.id)) || @event.nil?
+		if (@event.status == "Draft" && !current_member.has_draft_access(@event.id)) || @event.nil?
 			flash[:warning] = "Whoops! This page isn't ready yet. Check out our other events!"
 			redirect_to events_path
 		else
